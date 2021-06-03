@@ -23,6 +23,12 @@ class HelloForm extends React.Component {
       // [9]
       const newText = new Text();
       newText.text = this.state.name;
+      
+      /*------ PRINT -------*/
+      console.log("props LINEA 28", props);
+      // const fecha = new Text();
+      // fecha.text = this.state.name;
+      
 
       // [10]
       newText.styleRanges = [
@@ -33,52 +39,15 @@ class HelloForm extends React.Component {
         }
       ];
 
-
-
-  
-      //   var myDay = now.getDay();
-      //   console.log(myDay);
-
-      // //Array of days.
-      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
-      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
-      //   ];
-
-      //   /*------ PRINT -------*/
-      //   console.log("Today is : " + weekday[myDay]);
-
-      // newDate.text = this.state.date;
-
-      // // [10]
-      // newDate.styleRanges = [
-      //   {
-      //     length: newDate.text.length,
-      //     fill: new Color("#00F"),
-      //     fontSize: 50
-      //   }
-      // ];
-      //   var myDate = new Date();
-      //   var myDay = myDate.getDay();
-        
-      //   // Array of days.
-      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
-      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
-      //   ];
-      //   document.write("Today is : " + weekday[myDay]);
-      //   document.write("<br/>");
-
-      
-
-
       // [11]
       selection.insertionParent.addChild(newText);
-      // selection.insertionParent.addChild(fullDate);
 
       // [12]
       newText.moveInParentCoordinates(110, 110);
 
       // [13]
       props.dialog.close();
+  
     };
   }
 
@@ -91,15 +60,33 @@ class HelloForm extends React.Component {
         console.log("---------------------------------");
         console.log(fullDate);
         
+        // Array of days.
+        var weekday = ['Sunday', 'Monday', 'Tuesday',
+            'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ];
+        // Array of days.
+        var months = [
+        'January','February','March','April',
+        'May','June','July','August',
+        'September','October','November','December'  ];
+
+        var dayText = weekday[now.getDay()];
+        var month = months[now.getMonth()];
+        var year = now.getUTCFullYear();
+
     return (
       <form style={{ width: 300 }} onSubmit={this.onDoneClick}>
-        <h1>Welcome to the first PROSOMO INC plugin.</h1>
+        <h1>Welcome to the first</h1>
+        <h1>PROSOMO INC plugin.</h1>
         <label>
           <span>What is your name?</span>
-          <input onChange={this.onInputChange} />
+          <input onChange={this.onInputChange} required/>
         </label>
         <p>{`Hello ${this.state.name} `}</p>
-        {fullDate}
+        {/* <p>{`Full date: ${fullDate} `}</p> */}
+        <p>{`Today is: ${dayText}, ${now.getDay()} ${month}`}</p>
+        <p>{`Of : ${year} `}</p>
+        
         <footer>
           <button type="submit" uxp-variant="cta">
             Done

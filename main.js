@@ -28635,6 +28635,12 @@ class HelloForm extends React.Component {
       const newText = new Text();
       newText.text = this.state.name;
 
+      /*------ PRINT -------*/
+      console.log("props LINEA 28", props);
+      // const fecha = new Text();
+      // fecha.text = this.state.name;
+
+
       // [10]
       newText.styleRanges = [{
         length: newText.text.length,
@@ -28642,41 +28648,8 @@ class HelloForm extends React.Component {
         fontSize: 70
       }];
 
-      //   var myDay = now.getDay();
-      //   console.log(myDay);
-
-      // //Array of days.
-      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
-      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
-      //   ];
-
-      //   /*------ PRINT -------*/
-      //   console.log("Today is : " + weekday[myDay]);
-
-      // newDate.text = this.state.date;
-
-      // // [10]
-      // newDate.styleRanges = [
-      //   {
-      //     length: newDate.text.length,
-      //     fill: new Color("#00F"),
-      //     fontSize: 50
-      //   }
-      // ];
-      //   var myDate = new Date();
-      //   var myDay = myDate.getDay();
-
-      //   // Array of days.
-      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
-      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
-      //   ];
-      //   document.write("Today is : " + weekday[myDay]);
-      //   document.write("<br/>");
-
-
       // [11]
       selection.insertionParent.addChild(newText);
-      // selection.insertionParent.addChild(fullDate);
 
       // [12]
       newText.moveInParentCoordinates(110, 110);
@@ -28695,13 +28668,27 @@ class HelloForm extends React.Component {
     console.log("---------------------------------");
     console.log(fullDate);
 
+    // Array of days.
+    var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    // Array of days.
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    var dayText = weekday[now.getDay()];
+    var month = months[now.getMonth()];
+    var year = now.getUTCFullYear();
+
     return React.createElement(
       "form",
       { style: { width: 300 }, onSubmit: this.onDoneClick },
       React.createElement(
         "h1",
         null,
-        "Welcome to the first PROSOMO INC plugin."
+        "Welcome to the first"
+      ),
+      React.createElement(
+        "h1",
+        null,
+        "PROSOMO INC plugin."
       ),
       React.createElement(
         "label",
@@ -28711,14 +28698,23 @@ class HelloForm extends React.Component {
           null,
           "What is your name?"
         ),
-        React.createElement("input", { onChange: this.onInputChange })
+        React.createElement("input", { onChange: this.onInputChange, required: true })
       ),
       React.createElement(
         "p",
         null,
         `Hello ${this.state.name} `
       ),
-      fullDate,
+      React.createElement(
+        "p",
+        null,
+        `Today is: ${dayText}, ${now.getDay()} ${month}`
+      ),
+      React.createElement(
+        "p",
+        null,
+        `Of : ${year} `
+      ),
       React.createElement(
         "footer",
         null,
