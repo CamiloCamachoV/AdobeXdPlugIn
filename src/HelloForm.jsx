@@ -12,7 +12,6 @@ class HelloForm extends React.Component {
     this.onInputChange = e => {
       this.setState({ name: e.target.value});
     };
-
       // [7]
     this.onDoneClick = e => {
       // [8]
@@ -20,7 +19,6 @@ class HelloForm extends React.Component {
       // [9]
       const newText = new Text();
       newText.text = this.state.name;
-      
       // [10]
       newText.styleRanges = [
         {
@@ -60,7 +58,7 @@ class HelloForm extends React.Component {
     return (
       <form style={{ width: 300 }} onSubmit={this.onDoneClick}>
         <h1>Welcome to the first</h1>
-        <h1>PROSOMO INC plugin.</h1>
+        <h1>plugin by CamiloCV.</h1>
         <label>
           <span>What is your name?</span>
           <input onChange={this.onInputChange} required/>

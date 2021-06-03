@@ -28602,10 +28602,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/HelloForm.jsx.js":
-/*!******************************!*\
-  !*** ./src/HelloForm.jsx.js ***!
-  \******************************/
+/***/ "./src/HelloForm.jsx":
+/*!***************************!*\
+  !*** ./src/HelloForm.jsx ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28623,7 +28623,6 @@ class HelloForm extends React.Component {
     this.onInputChange = e => {
       this.setState({ name: e.target.value });
     };
-
     // [7]
     this.onDoneClick = e => {
       // [8]
@@ -28631,7 +28630,6 @@ class HelloForm extends React.Component {
       // [9]
       const newText = new Text();
       newText.text = this.state.name;
-
       // [10]
       newText.styleRanges = [{
         length: newText.text.length,
@@ -28676,7 +28674,7 @@ class HelloForm extends React.Component {
       React.createElement(
         "h1",
         null,
-        "PROSOMO INC plugin."
+        "plugin by CamiloCV."
       ),
       React.createElement(
         "label",
@@ -28728,12 +28726,13 @@ const reactShim = __webpack_require__(/*! ./react-shim */ "./src/react-shim.js")
 const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 // [3]
-const App = __webpack_require__(/*! ./HelloForm.jsx */ "./src/HelloForm.jsx.js");
+const App = __webpack_require__(/*! ./HelloForm.jsx */ "./src/HelloForm.jsx");
 
 function main(selection) {
   let dialog;
 
   function getDialog() {
+
     if (dialog == null) {
       // [4]
       dialog = document.createElement("dialog");

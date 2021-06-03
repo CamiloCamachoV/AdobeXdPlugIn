@@ -10,6 +10,7 @@ function main(selection) {
   let dialog;
 
   function getDialog() {
+    
     if (dialog == null) {
       // [4]
       dialog = document.createElement("dialog");
