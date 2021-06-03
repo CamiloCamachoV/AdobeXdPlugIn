@@ -1,0 +1,21 @@
+{
+  "id": "c0aa6ac1",
+  "name": "----> PROSOMO - React",
+  "version": "1.0.0",
+  "description": "Description of your plugin.",
+  "summary": "Summary of your plugin",
+  "languages": ["en"],
+  "author": "CamiloCV",
+  "helpUrl": "https://camilocamacho.netlify.app",
+  "host": {
+    "app": "XD",
+    "minVersion": "13.0"
+  },
+  "uiEntryPoints": [
+    {
+      "type": "menu",
+      "label": "Plugin #1",
+      "commandId": "main"
+    }
+  ]
+}
