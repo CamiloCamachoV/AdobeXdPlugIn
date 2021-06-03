@@ -28613,15 +28613,12 @@ if (false) {} else {
 const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 // [2]
 const { Text, Color } = __webpack_require__(/*! scenegraph */ "scenegraph");
-
 // [3]
 class HelloForm extends React.Component {
   // [4]
   constructor(props) {
     super(props);
-    this.state = { name: "", date: "" }; // [5]
-
-
+    this.state = { name: "" }; // [5]
     // [6]
     this.onInputChange = e => {
       this.setState({ name: e.target.value });
@@ -28635,25 +28632,16 @@ class HelloForm extends React.Component {
       const newText = new Text();
       newText.text = this.state.name;
 
-      /*------ PRINT -------*/
-      console.log("props LINEA 28", props);
-      // const fecha = new Text();
-      // fecha.text = this.state.name;
-
-
       // [10]
       newText.styleRanges = [{
         length: newText.text.length,
         fill: new Color("#00F"),
         fontSize: 70
       }];
-
       // [11]
       selection.insertionParent.addChild(newText);
-
       // [12]
       newText.moveInParentCoordinates(110, 110);
-
       // [13]
       props.dialog.close();
     };
@@ -28670,7 +28658,7 @@ class HelloForm extends React.Component {
 
     // Array of days.
     var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    // Array of days.
+    // Array of months.
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     var dayText = weekday[now.getDay()];
@@ -28708,12 +28696,7 @@ class HelloForm extends React.Component {
       React.createElement(
         "p",
         null,
-        `Today is: ${dayText}, ${now.getDay()} ${month}`
-      ),
-      React.createElement(
-        "p",
-        null,
-        `Of : ${year} `
+        `Today is: ${dayText}, ${now.getDay()} ${month} ${year}`
       ),
       React.createElement(
         "footer",
