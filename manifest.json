@@ -15,7 +15,12 @@
     {
       "type": "menu",
       "label": "Plugin #1",
-      "commandId": "main"
+      "commandId": "main",
+      "shortcut": {
+        "mac":"Cmd+Alt+N",
+        "win":"Ctrl+Alt+N"
+
+      }
     }
   ]
 }
