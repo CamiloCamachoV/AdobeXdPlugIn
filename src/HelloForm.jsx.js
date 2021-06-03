@@ -8,12 +8,12 @@ class HelloForm extends React.Component {
   // [4]
   constructor(props) {
     super(props);
-    this.state = { name: "", date: "03/06/2020"}; // [5]
+    this.state = { name: "", date: ""}; // [5]
   
 
     // [6]
     this.onInputChange = e => {
-      this.setState({ name: e.target.value });
+      this.setState({ name: e.target.value});
     };
 
     // [7]
@@ -33,23 +33,19 @@ class HelloForm extends React.Component {
         }
       ];
 
-      const now = new Date();
 
-        let fullDate = now.toString();
-        /*------ PRINT -------*/
-        console.log("---------------------------------");
-        console.log(fullDate);
+
   
-        var myDay = now.getDay();
-        console.log(myDay);
+      //   var myDay = now.getDay();
+      //   console.log(myDay);
 
-      //Array of days.
-        var weekday = ['Sunday', 'Monday', 'Tuesday',
-            'Wednesday', 'Thursday', 'Friday', 'Saturday'
-        ];
+      // //Array of days.
+      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
+      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      //   ];
 
-        /*------ PRINT -------*/
-        console.log("Today is : " + weekday[myDay]);
+      //   /*------ PRINT -------*/
+      //   console.log("Today is : " + weekday[myDay]);
 
       // newDate.text = this.state.date;
 
@@ -76,11 +72,11 @@ class HelloForm extends React.Component {
 
       // [11]
       selection.insertionParent.addChild(newText);
-      // selection.insertionParent.addChild(newDate);
+      // selection.insertionParent.addChild(fullDate);
 
       // [12]
-      newText.moveInParentCoordinates(100, 100);
-      //newDate.moveInParentCoordinates(110, 110);
+      newText.moveInParentCoordinates(110, 110);
+
       // [13]
       props.dialog.close();
     };
@@ -89,6 +85,12 @@ class HelloForm extends React.Component {
   // [14]
   render() {
 
+      const now = new Date();
+       let fullDate = now.toString();
+
+        console.log("---------------------------------");
+        console.log(fullDate);
+        
     return (
       <form style={{ width: 300 }} onSubmit={this.onDoneClick}>
         <h1>Welcome to the first PROSOMO INC plugin.</h1>
@@ -96,7 +98,8 @@ class HelloForm extends React.Component {
           <span>What is your name?</span>
           <input onChange={this.onInputChange} />
         </label>
-        <p>{`Hello ${this.state.name}`}</p>
+        <p>{`Hello ${this.state.name} `}</p>
+        {fullDate}
         <footer>
           <button type="submit" uxp-variant="cta">
             Done

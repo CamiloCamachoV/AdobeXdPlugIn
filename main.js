@@ -28619,7 +28619,7 @@ class HelloForm extends React.Component {
   // [4]
   constructor(props) {
     super(props);
-    this.state = { name: "", date: "03/06/2020" }; // [5]
+    this.state = { name: "", date: "" }; // [5]
 
 
     // [6]
@@ -28642,21 +28642,16 @@ class HelloForm extends React.Component {
         fontSize: 70
       }];
 
-      const now = new Date();
+      //   var myDay = now.getDay();
+      //   console.log(myDay);
 
-      let fullDate = now.toString();
-      /*------ PRINT -------*/
-      console.log("---------------------------------");
-      console.log(fullDate);
+      // //Array of days.
+      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
+      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      //   ];
 
-      var myDay = now.getDay();
-      console.log(myDay);
-
-      //Array of days.
-      var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-      /*------ PRINT -------*/
-      console.log("Today is : " + weekday[myDay]);
+      //   /*------ PRINT -------*/
+      //   console.log("Today is : " + weekday[myDay]);
 
       // newDate.text = this.state.date;
 
@@ -28681,11 +28676,11 @@ class HelloForm extends React.Component {
 
       // [11]
       selection.insertionParent.addChild(newText);
-      // selection.insertionParent.addChild(newDate);
+      // selection.insertionParent.addChild(fullDate);
 
       // [12]
-      newText.moveInParentCoordinates(100, 100);
-      //newDate.moveInParentCoordinates(110, 110);
+      newText.moveInParentCoordinates(110, 110);
+
       // [13]
       props.dialog.close();
     };
@@ -28693,6 +28688,12 @@ class HelloForm extends React.Component {
 
   // [14]
   render() {
+
+    const now = new Date();
+    let fullDate = now.toString();
+
+    console.log("---------------------------------");
+    console.log(fullDate);
 
     return React.createElement(
       "form",
@@ -28715,8 +28716,9 @@ class HelloForm extends React.Component {
       React.createElement(
         "p",
         null,
-        `Hello ${this.state.name}`
+        `Hello ${this.state.name} `
       ),
+      fullDate,
       React.createElement(
         "footer",
         null,
