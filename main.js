@@ -28634,14 +28634,32 @@ class HelloForm extends React.Component {
       // [9]
       const newText = new Text();
       newText.text = this.state.name;
+
       // [10]
       newText.styleRanges = [{
         length: newText.text.length,
         fill: new Color("#00F"),
         fontSize: 70
       }];
-      // const newDate = new Date();
+
+      const now = new Date();
+
+      let fullDate = now.toString();
+      /*------ PRINT -------*/
+      console.log("---------------------------------");
+      console.log(fullDate);
+
+      var myDay = now.getDay();
+      console.log(myDay);
+
+      //Array of days.
+      var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+      /*------ PRINT -------*/
+      console.log("Today is : " + weekday[myDay]);
+
       // newDate.text = this.state.date;
+
       // // [10]
       // newDate.styleRanges = [
       //   {
@@ -28650,6 +28668,16 @@ class HelloForm extends React.Component {
       //     fontSize: 50
       //   }
       // ];
+      //   var myDate = new Date();
+      //   var myDay = myDate.getDay();
+
+      //   // Array of days.
+      //   var weekday = ['Sunday', 'Monday', 'Tuesday',
+      //       'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      //   ];
+      //   document.write("Today is : " + weekday[myDay]);
+      //   document.write("<br/>");
+
 
       // [11]
       selection.insertionParent.addChild(newText);
